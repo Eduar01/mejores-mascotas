@@ -54,6 +54,9 @@ JAZZMIN_SETTINGS={
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,11 +150,13 @@ USE_TZ = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
-STATIC_FILES_DIR=['C:/Users/RYZEN 5/Documents/Sistema/sistema/aplicacion/static']
+STATICFILES_DIR=[os.path.join(BASE_DIR,"static")]
 
-MEDIA_ROOT = os.path.join(BASE_DIR,"")
+MEDIA_ROOT = os.path.join(BASE_DIR,"static/imagenes")
 MEDIA_URL = '/imagenes/'
+
 
 #Colocamos la ubicacion del login
 LOGIN_REDIRECT_URL = 'inicio'
